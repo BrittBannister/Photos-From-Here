@@ -1,8 +1,9 @@
 let imageArray = []
-navigator.geolocation.getCurrentPosition(useRealLocation, useFallbackLocation)
+navigator.geolocation.getCurrentPosition(useRealLocation, useFallbackLocation) //randys demo
 
 const fallbackLoc = { latitude: -41.838875, longitude: 171.7799 }
 
+//these two functions are from randys demo
 function useRealLocation(pos) {
     retrievePictures(pos.coords)
 }
@@ -12,6 +13,7 @@ function useFallbackLocation() {
 }
 
 //request sent to flickr
+//part of this is from randys demo
 function retrievePictures(coords) {
     console.log("Lat: " + coords.latitude)
     console.log("Lon: " + coords.longitude)
@@ -29,6 +31,7 @@ function retrievePictures(coords) {
         })
 }
 
+//link below randy gave us
 function createURL(data) {
     for (let i = 0; i < data.photos.photo.length; i++) {
         imageArray.push("https://farm" + data.photos.photo[i].farm + ".staticflickr.com/" + data.photos.photo[i].server + "/" + data.photos.photo[i].id + "_" + data.photos.photo[i].secret + ".jpg")
